@@ -7,6 +7,40 @@
 # y eliminar productos
 
 # Aplicación CRUD, create, read, update, delete
+
+def mostrar():
+    print('LISTADO DE PRODUCTOS')
+    print('Código','Nombre','Precio','Cantidad', sep='\t\t')
+    for i in productos:
+        print(i, productos[i][0], productos[i][1], productos[i][2],sep='\t\t')
+
+def consultar():
+    codigo = int(input('Digite el código del producto que desea consultar\n'))
+    if codigo in productos:
+        print('Código','Nombre','Precio','Cantidad', sep='\t\t')
+        print(codigo, productos[codigo][0], productos[codigo][1], productos[codigo][2],sep='\t\t')
+    else:
+        print('El código del producto no existe')
+
+def actualizar():
+    # actualizar precio y cantidad
+    codigo = int(input('Digite el código del producto que desea actualizar\n'))
+    if codigo in productos:
+        precio = int(input('Digite el nuevo precio del producto\n'))
+        cantidad = int(input('Digite la cantidad actualizada del producto\n'))
+        productos[codigo][1] = precio
+        productos[codigo][2] = cantidad
+        print('Prodcto actualizado:', productos[codigo])
+    else:
+        print('El código del producto no existe')
+        
+def borrar():
+    codigo = int(input('Digite el código del producto que desea eliminar:\n'))
+    if codigo in productos:
+        print('Producto eliminado:', productos.pop(codigo))
+    else:
+        print('El código del producto no existe')
+
 def crear():
     codigo = int(input('Digite el código del producto\n'))
     nombre = input('Digite el nombre del producto\n')
@@ -15,21 +49,8 @@ def crear():
     #productos.setdefault(codigo,[nombre,precio,cantidad]) #añadir una llave
     productos[codigo] = [nombre, precio, cantidad] #añadir una llave
     print('Producto creado:', productos[codigo])
-    
-    
 
-def mostrar():
-    print('LISTADO DE PRODUCTOS')
-    print('Código','Nombre','Precio','Cantidad', sep='\t\t')
 
-def consultar():
-    pass
-
-def actualizar():
-    pass
-
-def borrar():
-    pass
 
 productos ={ #inicializar el diccionario
     1: ['manzana', 2500, 60],
@@ -57,3 +78,7 @@ while continuar == 's' or continuar == 'S':
     else:
         print('Digite una opción valida')
     continuar = input('Digite "s" para continuar o culquier tecla para salir\n')
+
+
+
+    
