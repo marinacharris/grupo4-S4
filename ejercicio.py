@@ -37,7 +37,7 @@ def actualizar():
 def borrar():
     codigo = int(input('Digite el código del producto que desea eliminar:\n'))
     if codigo in productos:
-        print('Producto eliminado:', productos.pop(codigo))
+        print('Producto eliminado:',productos.pop(codigo))
     else:
         print('El código del producto no existe')
 
@@ -59,24 +59,27 @@ productos ={ #inicializar el diccionario
 }
 continuar = 's'
 while continuar == 's' or continuar == 'S':
-    print('Menu')
-    print('1. Crear')
-    print('2. Mostrar')
-    print('3. Consultar')
-    print('4. Actualizar\n5. Eliminar\n')
-    opcion = int(input('Digite una opción [1/2/3/4/5]:\n' ))
-    if opcion == 1:
-        crear()
-    elif opcion == 2:
-        mostrar()
-    elif opcion == 3:
-        consultar()
-    elif opcion == 4:
-        actualizar()
-    elif opcion == 5:
-        borrar()
-    else:
-        print('Digite una opción valida')
+    try:
+        print('Menu')
+        print('1. Crear')
+        print('2. Mostrar')
+        print('3. Consultar')
+        print('4. Actualizar\n5. Eliminar\n')
+        opcion = int(input('Digite una opción [1/2/3/4/5]:\n' ))
+        if opcion == 1:
+            crear()
+        elif opcion == 2:
+            mostrar()
+        elif opcion == 3:
+            consultar()
+        elif opcion == 4:
+            actualizar()
+        elif opcion == 5:
+            borrar()
+        else:
+            print('Digite una opción valida')
+    except:
+        print('Digite una opción válida, 1,2,3,4 o 5')
     continuar = input('Digite "s" para continuar o culquier tecla para salir\n')
 
 
