@@ -8,10 +8,19 @@
 
 # Aplicación CRUD, create, read, update, delete
 def crear():
-    pass
+    codigo = int(input('Digite el código del producto\n'))
+    nombre = input('Digite el nombre del producto\n')
+    precio = int(input('Digite el precio unitario del producto\n'))
+    cantidad = int(input('Digite la cantidad existente\n'))
+    #productos.setdefault(codigo,[nombre,precio,cantidad]) #añadir una llave
+    productos[codigo] = [nombre, precio, cantidad] #añadir una llave
+    print('Producto creado:', productos[codigo])
+    
+    
 
 def mostrar():
-    pass
+    print('LISTADO DE PRODUCTOS')
+    print('Código','Nombre','Precio','Cantidad', sep='\t\t')
 
 def consultar():
     pass
@@ -22,7 +31,7 @@ def actualizar():
 def borrar():
     pass
 
-productos ={
+productos ={ #inicializar el diccionario
     1: ['manzana', 2500, 60],
     2: ['pera', 2800, 85],
     3: ['banana', 500, 680]   
@@ -33,8 +42,7 @@ while continuar == 's' or continuar == 'S':
     print('1. Crear')
     print('2. Mostrar')
     print('3. Consultar')
-    print('4. Actualizar')
-    print('5. Eliminar')
+    print('4. Actualizar\n5. Eliminar\n')
     opcion = int(input('Digite una opción [1/2/3/4/5]:\n' ))
     if opcion == 1:
         crear()
